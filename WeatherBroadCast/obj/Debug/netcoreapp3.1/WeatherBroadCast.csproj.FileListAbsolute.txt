@@ -1,0 +1,13 @@
+C:\Users\Omar\source\repos\EventDemo\WeatherBroadCast\bin\Debug\netcoreapp3.1\WeatherBroadCast.exe
+C:\Users\Omar\source\repos\EventDemo\WeatherBroadCast\bin\Debug\netcoreapp3.1\WeatherBroadCast.deps.json
+C:\Users\Omar\source\repos\EventDemo\WeatherBroadCast\bin\Debug\netcoreapp3.1\WeatherBroadCast.runtimeconfig.json
+C:\Users\Omar\source\repos\EventDemo\WeatherBroadCast\bin\Debug\netcoreapp3.1\WeatherBroadCast.runtimeconfig.dev.json
+C:\Users\Omar\source\repos\EventDemo\WeatherBroadCast\bin\Debug\netcoreapp3.1\WeatherBroadCast.dll
+C:\Users\Omar\source\repos\EventDemo\WeatherBroadCast\bin\Debug\netcoreapp3.1\WeatherBroadCast.pdb
+C:\Users\Omar\source\repos\EventDemo\WeatherBroadCast\obj\Debug\netcoreapp3.1\WeatherBroadCast.csprojAssemblyReference.cache
+C:\Users\Omar\source\repos\EventDemo\WeatherBroadCast\obj\Debug\netcoreapp3.1\WeatherBroadCast.csproj.CoreCompileInputs.cache
+C:\Users\Omar\source\repos\EventDemo\WeatherBroadCast\obj\Debug\netcoreapp3.1\WeatherBroadCast.AssemblyInfoInputs.cache
+C:\Users\Omar\source\repos\EventDemo\WeatherBroadCast\obj\Debug\netcoreapp3.1\WeatherBroadCast.AssemblyInfo.cs
+C:\Users\Omar\source\repos\EventDemo\WeatherBroadCast\obj\Debug\netcoreapp3.1\WeatherBroadCast.dll
+C:\Users\Omar\source\repos\EventDemo\WeatherBroadCast\obj\Debug\netcoreapp3.1\WeatherBroadCast.pdb
+C:\Users\Omar\source\repos\EventDemo\WeatherBroadCast\obj\Debug\netcoreapp3.1\WeatherBroadCast.genruntimeconfig.cache
