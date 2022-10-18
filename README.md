@@ -1,0 +1,4 @@
+# RestaurantQueueManagement
+
+
+Conflicts should raise
