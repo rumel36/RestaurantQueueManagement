@@ -1,0 +1,94 @@
+name: Build, Test, Sign, Release
+on: 
+    workflow_dispatch:
+     inputs:
+        releaseType:
+            description: 'Release Type'     
+            required: true 
+            default: 'None'
+            type: choice
+            options:
+              - None
+              - official
+              - beta
+              
+jobs:
+  build_and_release:
+    runs-on: windows-latest
+ 
+    steps:
+    # Print inputs 
+    - name: Print Inputs
+      run: |
+        echo "Branch name: ${{ github.ref_name }}"
+        echo "Release Type: ${{ github.event.inputs.releaseType }}"        
+
+    # Add executables to the path 
+    - name: Add Nuget.exe to the Path
+      uses: Nuget/setup-nuget@04b0c2b8d1b97922f67eca497d7cf0bf17b8ffe1
+    - name: Add MSBuild.exe to the Path
+      uses: microsoft/setup-msbuild@c26a08ba26249b81327e26f6ef381897b6a8754d
+    - name: Add VSTest to the Path
+      uses: darenm/Setup-VSTest@fbb574e849d6225ce9702f86e64eb6cdc4b4e561
+    - name: Adding fxc and signtool to the Path 
+      run: echo "C:/Program Files (x86)/Windows Kits/10/bin/10.0.17763.0/x86" | Out-File -Append -FilePath $env:GITHUB_PATH -Encoding utf8 
+
+    # Check code out 
+    - uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
+  
+    #Setup AWS
+    - name: Download AWS CLI
+      if: always()
+      uses: chrislennon/action-aws-cli@1347f1da2852be38fdbea5e6e336f1e297fec7a0
+
+    - name: "Configure AWS Credentials"
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ca-central-1 
+
+    # Build PolarSDK 
+    - name: Setup Java
+      uses: actions/setup-java@f0bb91606209742fe3ea40199be2f3ef195ecabf
+      with:
+            distribution: 'temurin'
+            java-version: '17'
+    - name: Build and release with script
+      run: .\Scripts\release.ps1 ${{ github.event.inputs.releaseType }}
+
+    # Run tests  
+    - name: Run tests
+      run: vstest.console.exe /Platform:x86 .\PolarSDK.UnitTest\bin\x86\Release\PolarSDK.UnitTest.dll /logger:trx 
+  
+    # Upload installer and tests 
+    - name: Upload installer to artifact
+      uses: actions/upload-artifact@e448a9b857ee2131e752b06002bf0e093c65e571
+      if: always()
+      with:
+       name: installer
+       path: output
+
+    - name: Upload test results to artifact 
+      uses: actions/upload-artifact@e448a9b857ee2131e752b06002bf0e093c65e571
+      if: always()
+      with:
+        name: test-results
+        path: TestResults
+
+    # Upload PolarSDK to Myget
+    - name: Add Myget source for official builds
+      if: github.ref == 'refs/head/release/**' #Release official version
+      env: 
+        apiKey: ${{ secrets.MYGET_API_KEY }}
+        pbsdkrepo: ${{secrets.POLARSDK_REPO}}
+        pbsdksymbols: ${{secrets.POLARSDK_SYMBOLS_REPO}} 
+      run: .\Scripts\Deploy.ps1 -Repository $env:pbsdkrepo -SymbolsRepository $env:pbsdksymbols -APIKey $env:apiKey -Config Release
+    
+    - name: Add Myget source for beta builds
+      if: github.ref !='refs/head/release/**' #Release Beta version
+      env: 
+        apiKey: ${{ secrets.MYGET_API_KEY }}
+        pbsdkrepo_beta: ${{secrets.POLARSDK_BETA_REPO}}
+        pbsdksymbols_beta: ${{secrets.POLARSDK_BETA_SYMBOLS_REPO}}
+      run: .\scripts\Deploy.ps1 -Repository $env:pbsdkrepo_beta -SymbolsRepository $env:pbsdksymbols_beta -APIKey $env:apiKey -Config Release
