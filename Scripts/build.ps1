@@ -55,5 +55,5 @@ if($KEY -eq "12345abcd"){
 }
 else{
 	write-output "#Not build#"
-	exit;
+	exit 1;
 }
