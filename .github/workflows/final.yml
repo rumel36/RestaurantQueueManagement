@@ -1,0 +1,22 @@
+name: Build, Test, Sign, Release
+on: push
+              
+jobs:
+  build_and_release:
+    runs-on: windows-latest
+    env:
+     KEY: ${{ secrets.MYNAME }}
+    steps:
+    # Add executables to the path 
+    - name: Add Nuget.exe to the Path
+      uses: Nuget/setup-nuget@04b0c2b8d1b97922f67eca497d7cf0bf17b8ffe1
+    - name: Add MSBuild.exe to the Path
+      uses: microsoft/setup-msbuild@c26a08ba26249b81327e26f6ef381897b6a8754d
+    - name: Add VSTest to the Path
+      uses: darenm/Setup-VSTest@fbb574e849d6225ce9702f86e64eb6cdc4b4e561
+
+    # Check code out 
+    - uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f 
+    
+    - name: build
+      run: .\Scripts\build.ps1 $KEY
