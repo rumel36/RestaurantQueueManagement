@@ -8,30 +8,39 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\Omar\\.nuget\\packages\\": {}
+    "C:\\Users\\osharif\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Omar\\source\\repos\\EventDemo\\Restaurant\\Restaurant.csproj",
+      "projectUniqueName": "C:\\McAfeeResource\\RestaurantQueueManagement\\Restaurant\\Restaurant.csproj",
       "projectName": "Restaurant",
-      "projectPath": "C:\\Users\\Omar\\source\\repos\\EventDemo\\Restaurant\\Restaurant.csproj",
-      "packagesPath": "C:\\Users\\Omar\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Omar\\source\\repos\\EventDemo\\Restaurant\\obj\\",
+      "projectPath": "C:\\McAfeeResource\\RestaurantQueueManagement\\Restaurant\\Restaurant.csproj",
+      "packagesPath": "C:\\Users\\osharif\\.nuget\\packages\\",
+      "outputPath": "C:\\McAfeeResource\\RestaurantQueueManagement\\Restaurant\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Omar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\osharif\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "C:\\Users\\osharif\\Downloads\\polarsdk_beta_arm-637963618575904992\\nuget\\packages\\1.21.2.2": {},
+        "C:\\Users\\osharif\\source\\Nuget": {},
+        "C:\\Users\\osharif\\source\\nugetpackage": {},
+        "https://api.nuget.org/v3/index.json": {},
+        "https://www.myget.org/F/polarsdk_beta/": {}
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "projectReferences": {}
         }
       },
@@ -43,6 +52,7 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
+        "targetAlias": "netcoreapp3.1",
         "imports": [
           "net461",
           "net462",
@@ -53,12 +63,18 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[3.1.24, 3.1.24]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }

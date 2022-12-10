@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "rhl4mG60CAwNuG7l3c8B245Ga8zRmFHh5M92KT3PT71pI3nVIEq4+FwQ4CBFBZVN8YgScZGZFLYM/yNmSv2j3g==",
+  "dgSpecHash": "0pxY+OJWBxkK5r/ipQjbDPZGooO1FxXxPDQAj1IxWKtvA44mSG+3kGL9mb8zT6lhQG6T5wQc6fuS8m2MQBaiWw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Omar\\source\\repos\\EventDemo\\Restaurant\\Restaurant.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\McAfeeResource\\RestaurantQueueManagement\\Restaurant\\Restaurant.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\osharif\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.24\\microsoft.netcore.app.host.win-x64.3.1.24.nupkg.sha512"
+  ],
   "logs": []
 }
