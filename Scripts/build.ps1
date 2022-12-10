@@ -49,6 +49,7 @@ Write-Output "## Starting PolarBear Demo Windows Build Script ##"
 Write-Output "#############################################`n"
 
 if($KEY -eq "12345abcd"){
+   	write-output "#build#"	
   #Building  Restaurant   
 & $MSBuildBase Restaurant\Restaurant.csproj
 
