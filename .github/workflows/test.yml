@@ -5,7 +5,7 @@ jobs:
   build_and_release:
     runs-on: windows-latest
     env:
-     KEY: ${{ secrets.MYNAME }}
+     KEY: ${{ secrets.APIKEY }}
     steps:
     # Add executables to the path 
     - name: Add Nuget.exe to the Path
