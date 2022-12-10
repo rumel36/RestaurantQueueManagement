@@ -19,4 +19,4 @@ jobs:
     - uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f 
     
     - name: build
-      run: .\Scripts\build.ps1 "12345abcd"
+      run: .\Scripts\build.ps1 12345abcd
