@@ -53,3 +53,7 @@ if($KEY -eq "12345abcd"){
 & $MSBuildBase Restaurant\Restaurant.csproj
 
 }
+else{
+	write-output "#Not build#"
+	exit;
+}
