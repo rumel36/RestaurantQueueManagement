@@ -1,5 +1,16 @@
 name: Build, Test, Sign, Release
-on: push
+on:
+    workflow_dispatch:
+     inputs:
+        releaseType:
+            description: 'Release Type'     
+            required: true 
+            default: 'None'
+            type: choice
+            options:
+              - None
+              - official
+              - beta
               
 jobs:
   build_and_release:
