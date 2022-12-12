@@ -7,6 +7,11 @@ jobs:
     env:
      key: ${{ secrets.MYNAME }}
     steps:
+    # Print inputs 
+    - name: Print Inputs
+      run: |
+        echo "Branch name: ${{ github.ref_name }}"
+        echo "Release Type: ${{ github.event.inputs.releaseType }}"
     # Add executables to the path 
     - name: Add Nuget.exe to the Path
       uses: Nuget/setup-nuget@04b0c2b8d1b97922f67eca497d7cf0bf17b8ffe1
@@ -19,4 +24,4 @@ jobs:
     - uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f 
     
     - name: build
-      run: .\Scripts\build.ps1 $env:key
+      run: .\Scripts\build.ps1 ${{ github.event.inputs.releaseType }} $env:key
